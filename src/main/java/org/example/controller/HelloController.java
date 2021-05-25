@@ -1,6 +1,8 @@
 package org.example.controller;
 
 
+import org.example.bean.Car;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,6 +17,15 @@ import javax.xml.ws.RequestWrapper;
 //由于要处理多个请求返回，所以将@ResponseBody写到外面
 //@Controller
 public class HelloController {
+
+    @Autowired
+    Car car;
+
+    @RequestMapping("/car")
+    public Car car(){
+        return car;
+    }
+
 
     //由于返回的字符串是直接写给浏览器的，所以加注释@ResponseBody
     //@ResponseBody
